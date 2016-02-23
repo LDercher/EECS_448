@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>color changer</title>
+<style>	
+	P
+	{
+	background-color:rgb(255,255,255);
+	border-color: rgb(0,0,0);
+	border-style: solid;
+    border-width: 20px;
+	}
+</style>
+</head>
+
+<body>
+
+<h2>Color changer 
+
+<p id="para">Here you can see the power of CSS and Javascript combined. Input in boxes values between 0 and 255 for red, green, and blue. You will create a color for this paragraphs background and border. You can also specify the border width. </p>
+<form>
+  <input type="text" id="r_back"> Red background value<br>
+  <input type="text" id="g_back"> Green background value<br>
+  <input type="text" id="b_back"> Blue background value<br>   
+  <input type="text" id="r_bord"> Red border value<br>
+  <input type="text" id="b_bord"> Green border value<br>
+  <input type="text" id="g_bord"> Blue border value<br>
+  <input type="text" id="b_width"> Border width <br><br>
+</form> 
+
+<button onclick="colorScheme()">Create your colors scheme</button>
+
+
+<script>
+
+//in JavaScript
+
+//Access the tag:
+
+
+function colorScheme()
+{
+//Change the style attribute
+var para = document.getElementById("para");
+var r_back = document.getElementById("r_back").value;
+var g_back = document.getElementById("g_back").value;
+var b_back = document.getElementById("b_back").value;
+var r_bord = document.getElementById("r_bord").value;
+var g_bord= document.getElementById("b_bord").value;
+var b_bord = document.getElementById("g_bord").value;
+var b_width = document.getElementById("b_width").value;
+para.style.backgroundColor = 'rgb('+r_back+','+g_back+','+b_back+')';
+para.style.borderColor = 'rgb('+r_bord+','+g_bord+','+b_bord+')';
+para.style.borderWidth = b_width+'px';
+}
+
+</script>
+
+</body>
+
+</html> 
