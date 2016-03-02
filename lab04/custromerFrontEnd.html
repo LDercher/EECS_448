@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Simple Store</title>
+
+<link href="style.css" rel="stylesheet" type="text/css"/>
+ <script src="formChecker.js"></script> 
+</head>
+<header style="width: 2271px">
+    <h1 style="width: 2272px">Luke Dercher's webstore</h1>
+</header>
+<form id="checkoutForm" method="post" action="checkout.php">
+
+	<h2>Please enter a username a password</h2>
+	<form id="shoppingForm" method="post" action="customerBackend.php">
+      <div><br>
+        Username: <input type="text" id="userName" name="userName" value="name@domain.com"><br><br>
+        Password: <input type="text" id="passWord" name="passWord"value="password">
+        <br>
+      </div>
+      <div>
+        <h2>Shred in style with this awesome BatGuitar.</h2><br>
+        <img src="http://www.edroman.com/guitars/abstract/images/abs-rockingbat-700.jpg" alt="Bat Guitar" height="160" width="400"><br>
+        Price: $499.99<br>
+        Quantity: <input type="text" id="BatG" name="BatG" value="0" style="width: 41px"><br><br>
+        <h2>Can you handle this bodacious beauty? Priced at $599.99</h2><br>
+        <img src="http://www.edroman.com/guitars/abstract/images/abenter_guitar244.jpg" alt="Rad Guitar" height="160" width="400"><br>
+        Price: $599.99<br>
+        Quantity: <input type="text" id="RadG" name="RadG" value="0" style="width: 57px"><br><br>
+        <h2>This bone chilling beast will make your fingers tingle. Priced at $699.99</h2><br>
+        <img src="http://www.edroman.com/guitars/jfrog/images/jfrog_skull_550.jpg" alt="Bone Guitar" height="160" width="400"><br>
+        Price: $699.99<br>
+        Quantity: <input type="text" id="BoneG" name="BoneG" value="0" style="width: 90px"><br><br>
+      </div>
+      <div>
+        Shipping<br>
+        <input type="radio" name="shipping" value="1" checked>Free 7 day<br>
+        <input type="radio" name="shipping" value="2">$50.00 over night<br>
+        <input type="radio" name="shipping" value="3">$5.00 three day<br><br><br>
+      </div>
+	  <div>
+        <input type="button" onclick="checkValid()" value="Submit" style="width: 87px">&nbsp;
+        <input type="button" onclick="resetForm()" value="Reset">
+       </div> 
+        
+        </form>
+	
+    <script src="formChecker.js"></script>
+
+
+
+
+</html>
