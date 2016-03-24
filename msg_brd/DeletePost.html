@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+    <?php
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "ldercher", "Sasquatch66", "ldercher");
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    if ($mysqli->connect_errno) {
+        $error = $mysqldatabase->connect_error;
+        $message = "Connect failed: " . $error;
+        exit();
+    }
+
+
+    $result = $mysqli->query("SELECT * FROM Posts");
+    $array = mysqli_fetch_all($result, MYSQLI_NUM);
+    $num_users = mysqli_num_rows($result);
+    if($num_users > 0)
+    {
+	  echo "<form method='POST' action='DeletePost.php'>";
+      echo "<table border='1'>";
+	  echo "<tr>";
+      echo "<th>Author</th>";
+      echo "<th>Post Content</th>";
+	  echo "<th>Delete</th>";
+	  echo "</tr>";
+      foreach($array as $row)
+       {
+                echo "<tr>";
+                echo "<td>" . $row[2] . "</td>";
+				echo "<td>" . $row[1] . "</td>";
+				echo "<td><input type='checkbox' name='post_delete[]' value='" . $row[0] . "'</td>";
+				echo "</tr>";
+
+      }
+      echo "</table><br><br>";
+	  echo "<input type='submit' name='submit' id='submit'>";
+	  echo "</form>";
+    }
+	else {
+		echo "No posts to delete!";
+	}
+      ?>
+</body>
+</html>

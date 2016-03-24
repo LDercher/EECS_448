@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+    <h1>View Posts By User</h1>
+    Select User:<br>
+      <?php
+      $mysqli = new mysqli("mysql.eecs.ku.edu", "ldercher", "Sasquatch66", "ldercher");
+
+      if ($mysqli->connect_errno) {
+          $error = $mysqli->connect_error;
+          $message = "Connect failed: " . $error;
+          echo $message;
+          exit();
+      }
+
+      $result = $mysqli->query("SELECT * FROM Users");
+      $array = mysqli_fetch_all($result, MYSQLI_NUM);
+      $num_users = mysqli_num_rows($result);
+      if($num_users > 0) {
+        echo "<form method='post' action='ViewUserPosts.php'>";
+        echo "<select name='username' id='username' onchange='this.form.submit()'>";
+        echo '<option> select an option</option>';
+		foreach($array as $row) {
+          foreach($row as $username) {
+            echo '<option value="' . $username . '">' . $username . '</option>';
+          }
+        }
+        echo "</select>";
+        echo "</form>";
+      }
+      else {
+        echo "Users table empty!\n";
+      }
+      echo "<a href='AdminHome.html'>Admin Menu</a>";
+      ?>
+    </body>
+</html>
