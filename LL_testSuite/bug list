@@ -1,0 +1,5 @@
+
+BUG 1: isEmpty is always false
+BUG 2: removeFront actually removes from the back.
+BUG 3: addBack is adding the first element.
+BUG 4: size always returns one more than the actual size
